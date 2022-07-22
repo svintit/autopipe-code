@@ -1,0 +1,55 @@
+{
+    "name": "autopipe-code",
+    "displayName": "AutoPipe",
+    "description": "AutoPipe-like behavior for VS Code",
+    "version": "0.1.0",
+    "publisher": "svintit",
+    "license": "MIT",
+    "engines": {
+        "vscode": "^1.69.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/svintit/autopipe-code"
+    },
+    "categories": [
+        "Formatters"
+    ],
+    "activationEvents": [
+        "*"
+    ],
+    "main": "./out/extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "autopipe-code.toggleAutoPipe",
+                "title": "AutoPipe: Toggle AutoPipe"
+            }
+        ],
+        "configuration": {
+            "type": "object",
+            "title": "AutoPipe configuration",
+            "properties": {
+                "autopipe-code.enable": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Set to false to completely disable AutoPipe behavior."
+                }
+            }
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "test": "npm run compile && node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "@types/assert": "^1.5.6",
+        "@types/mocha": "^7.0.2",
+        "@types/node": "^13.13.52",
+        "@types/vscode": "^1.69.0",
+        "tslint": "^6.0.0",
+        "typescript": "^3.8.3"
+    }
+}
